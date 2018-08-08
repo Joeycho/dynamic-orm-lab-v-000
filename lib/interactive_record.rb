@@ -71,7 +71,6 @@ class InteractiveRecord
   SELECT * FROM #{self.table_name} WHERE #{col.to_s}= ?
   SQL
   result = DB[:conn].execute(sql,val)
-  binding.pry
   end
   result
   end
