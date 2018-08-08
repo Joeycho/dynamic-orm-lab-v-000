@@ -67,7 +67,7 @@ class InteractiveRecord
   options.each do |col, val|
   binding.pry
   sql = <<-SQL
-  SELECT * FROM #{self.table_name} WHERE#{col}= ?
+  SELECT * FROM #{self.table_name} WHERE#{col.to_s}= ?
   SQL
   DB[:conn].execute(sql,val)
   end
