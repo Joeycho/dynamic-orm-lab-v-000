@@ -65,7 +65,7 @@ class InteractiveRecord
 
   def self.find_by(options = {})
   options.each do |col, val|
-  #binding.pry
+  binding.pry
   sql = <<-SQL
   SELECT * FROM #{self.table_name} WHERE#{col.to_s}= #{val}
   SQL
