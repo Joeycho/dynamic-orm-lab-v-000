@@ -64,7 +64,7 @@ class InteractiveRecord
   end
 
   def self.find_by(attribute: value)
-#  binding.pry
+  binding.pry
   sql = <<-SQL
   SELECT * FROM #{self.table_name} WHERE#{attribute.to_sym}  = ?
   SQL
