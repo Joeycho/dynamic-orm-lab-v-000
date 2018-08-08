@@ -63,12 +63,13 @@ class InteractiveRecord
   DB[:conn].execute(sql,name)
   end
 
-  def self.find_by(value)
-  binding.pry
+  def self.find_by(options = {})
+  options.each do |col, val|
   sql = <<-SQL
-  SELECT * FROM #{self.table_name} WHERE#{attribute.to_sym}  = ?
+  SELECT * FROM #{self.table_name} WHERE#{col.to_sym}  = ?
   SQL
-  DB[:conn].execute(sql,value)
+  DB[:conn].execute(sql,val)
+  end
   end
 
 
