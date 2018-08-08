@@ -4,6 +4,7 @@ require 'active_support/inflector'
 require 'pry'
 
 class InteractiveRecord
+
   def self.table_name
     self.to_s.downcase.pluralize
   end
@@ -23,13 +24,8 @@ class InteractiveRecord
     column_names.compact
   end
 
-  self.column_names.each do
-  |col_name|
-      attr_accessor col_name.to_sym
-  end
-
   def initialize(options={})
-    binding.pry
+    #binding.pry
     options.each do |property, value|
       self.send("#{property}=", value)
     end
