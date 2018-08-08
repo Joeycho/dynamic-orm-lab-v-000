@@ -69,8 +69,9 @@ class InteractiveRecord
   sql = <<-SQL
   SELECT * FROM #{self.table_name} WHERE"#{col.to_s}= #{val}"
   SQL
-  DB[:conn].execute(sql)
+  result = DB[:conn].execute(sql)
   end
+  result
   end
 
 
