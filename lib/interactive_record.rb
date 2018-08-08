@@ -43,10 +43,11 @@ class InteractiveRecord
    values = []
    self.class.column_names.each do
   |col_name|
-  if send(col_name).nil?
     values << "'#{send(col_name)}'"
+  unless send(col_name).nil?
+    end
   end
-  end
+    values.compact
     values.join(", ")
   end
 
