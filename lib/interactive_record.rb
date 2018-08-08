@@ -66,7 +66,7 @@ class InteractiveRecord
   def self.find_by(options = {})
   options.each do |col, val|
   sql = <<-SQL
-  SELECT * FROM #{self.table_name} WHERE#{col.to_sym}= ?
+  SELECT * FROM #{self.table_name} WHERE#{col}= ?
   SQL
   DB[:conn].execute(sql,val)
   end
